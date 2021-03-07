@@ -19,7 +19,11 @@ window.onload = () => {
             for (i = 0; i < objectData.length; i++) {
                 let title = objectData[i].title;
                 let value = objectData[i].value;
-                let content = `<li><span class="dataEdit dataTitle">${title}</span>: <span class="dataEdit dataValue">${value}</span></li>`;
+                let content = `<li>
+                            <span class="dataEdit dataTitle">${title}</span>: 
+                            <span class="dataEdit dataValue">${value}</span>
+                            <button class="close" type="button">x</button>
+                        </li>`;
                 innerLi += content;
             }
             listContainer.innerHTML = innerLi;
@@ -50,16 +54,30 @@ window.onload = () => {
                 })
             })
 
-        } else { listContainer.innerHTML = '<li>Нет данных в хранилище</li>' }
+            //удаление строк li
+            const closeBtn = document.querySelectorAll('.close');
+            closeBtn.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    let currentString = e.target.parentElement;
+                    currentString.style.display = "none";
+                    currentString.childNodes[1].innerText = '';
+                    currentString.childNodes[3].innerText = '';   
+                    saveData();
+                })
+            })
+
+        } //else { listContainer.innerHTML = '<li>Нет данных в хранилище</li>' }
     }
 
     render();
 
     //добавление задачи в проект
     btnAdd.addEventListener('click', () => {
-        let el = document.createElement('div');
-        el.innerHTML = '<li><input class="dataTitle" type="text" placeholder="Задача"> <input class="dataValue" type="text" placeholder="Значение"></li>';
+        let el = document.createElement('li');
+        el.className = "";
+        el.innerHTML = '<input class="dataTitle" type="text" placeholder="Задача"> <input class="dataValue" type="text" placeholder="Значение">';
         listWrap.appendChild(el);
+        el.childNodes[0].focus();
     })
 
     //сохранение изменений
@@ -70,14 +88,17 @@ window.onload = () => {
         const newValue = [...document.querySelectorAll('.dataValue')];
 
         for (i = 0, j = 0; i < newTitle.length, j < newValue.length; i++, j++) {
-            newData.push({ title: newTitle[i].innerText || newTitle[i].value, value: newValue[j].innerText || newValue[j].value })
+            if(newTitle[i].value != '' && newValue[j].value != '' && newTitle[i].parentElement.style.display != "none") {
+                newData.push({ title: newTitle[i].innerText || newTitle[i].value, value: newValue[j].innerText || newValue[j].value })
+            }
         }
         localStorage.setItem('data', JSON.stringify(newData));
         listWrap.innerHTML = '';
         render();
-
     }
 
     //сохранение новых данных
     btnSave.addEventListener('click', () => { saveData() })
 }
+
+
