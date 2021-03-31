@@ -93,6 +93,7 @@ body {
 .tracker__list-add-item {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 .tracker__list-add-item input {
   background-color: transparent;
