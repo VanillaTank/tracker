@@ -1,0 +1,121 @@
+@import '_general'
+
+
+.container
+    max-width: 900px
+    margin: 0 auto
+
+.tracker
+    margin-top: 30px
+    padding: 0 20px
+    &__title
+        font-size: 30px
+        margin-bottom: 15px
+    &__list-item
+        margin-bottom: 20px    
+        display: flex
+        justify-content: flex-start
+        align-items: flex-start
+        border: 1px solid #eeeeee
+        border-radius: 3px
+        padding: 10px 50px 10px 10px
+        position: relative
+    &__list-item:hover
+        box-shadow: 0 0 5px #cecdcd    
+    &__btn-wrap
+        display: flex
+        justify-content: space-between    
+        margin-top: 30px
+    &__btnAdd
+        border: 2px solid #dfffcc
+        background-color: transparent
+        font-weight: 600
+        &:hover
+            background-color: #dfffcc
+        &:active
+            background-color: #9cdb77           
+
+    &__btnSave  
+        border: 2px solid #a8ebff     
+        background-color: #a8ebff 
+        &:hover
+            background-color: transparent
+        &:active
+            background-color: #57b8d6 
+
+
+.tracker__list-add    
+    &-item
+        display: flex
+        flex-wrap: wrap
+    &-item input
+        background-color: transparent
+        padding: 8px 10px
+        border-radius: 3px
+        font-size: 16px
+        line-height: 20px
+        font-family: Georgia, 'Times New Roman', Times, serif
+        color: #1d1c1c
+        width: 300px
+        max-width: 100%
+        &:active, &:focus
+            outline: none
+        &:nth-child(1)
+            border: 2px solid #dfffcc
+            &:active, &:focus
+                border-color: #9cdb77 
+        &:nth-child(2)
+            border: 2px solid #a8ebff    
+            &:active, &:focus
+                border-color: #57b8d6 
+        &::placeholder
+            font-size: 18px
+            line-height: 22px      
+
+
+.btn
+    border-radius: 3px
+    padding: 10px 20px
+    box-shadow: none
+    cursor: pointer
+    transition: all .3s
+    font-size: 16px
+    font-family: Georgia, 'Times New Roman', Times, serif
+    font-weight: 600
+    color: #313131
+    &:active
+        outline: none 
+    &:focus
+        outline: none  
+
+.dataEdit
+    display: inline-block
+    padding: 5px 10px
+    border-radius: 3px
+    min-width: 30px
+    min-height: 34px  
+    &:hover
+        cursor: pointer
+
+.dataTitle
+    background-color: #dfffcc       
+    margin-right: 10px    
+    max-width: 200px 
+
+.dataValue
+    background-color: #a8ebff    
+    margin-left: 10px
+
+.close
+    position: absolute
+    top: 10px
+    right: 10px 
+    background-color: #ebe6e6  
+    border: none  
+    padding: 5px 10px
+    border-radius: 3px
+    &:hover
+        background-color: #ffaeae
+        cursor: pointer
+    &:active, &:focus
+        outline: none    

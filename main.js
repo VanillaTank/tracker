@@ -1,10 +1,10 @@
 window.onload = () => {
     function $(el) { return document.querySelector(el) };
 
-    const listContainer = $('.list-container');
-    const btnAdd = $('.btnAdd');
-    const btnSave = $('.btnSave');
-    const listWrap = $('.listWrap');
+    const listContainer = $('.tracker__list');
+    const btnAdd = $('.tracker__btnAdd');
+    const btnSave = $('.tracker__btnSave');
+    const listWrap = $('.tracker__list-add');
 
     function render() {
         //сделать запрос в локальное хранилище
@@ -19,7 +19,7 @@ window.onload = () => {
             for (i = 0; i < objectData.length; i++) {
                 let title = objectData[i].title;
                 let value = objectData[i].value;
-                let content = `<li>
+                let content = `<li class="tracker__list-item">
                             <span class="dataEdit dataTitle">${title}</span>: 
                             <span class="dataEdit dataValue">${value}</span>
                             <button class="close" type="button">x</button>
@@ -74,7 +74,7 @@ window.onload = () => {
     //добавление задачи в проект
     btnAdd.addEventListener('click', () => {
         let el = document.createElement('li');
-        el.className = "";
+        el.className = "tracker__list-add-item";
         el.innerHTML = '<input class="dataTitle" type="text" placeholder="Задача"> <input class="dataValue" type="text" placeholder="Значение">';
         listWrap.appendChild(el);
         el.childNodes[0].focus();
