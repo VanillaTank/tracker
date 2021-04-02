@@ -62,7 +62,10 @@ window.onload = () => {
                 })
             })
 
-        } else { listContainer.innerHTML = '<li>Нет данных в хранилище</li>' }
+        } else if(data == null) { 
+            alert('Дата == null')
+            listContainer.innerHTML = '<li>Нет данных в хранилище</li>' 
+        }
     }
 
     render(); 
