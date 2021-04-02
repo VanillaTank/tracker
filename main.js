@@ -8,7 +8,7 @@ window.onload = () => {
 
     function render() {
         //сделать запрос в локальное хранилище
-        let data = localStorage.getItem('data');
+        let data = localStorage.getItem('tracker_data');
         alert(data)
         //проверить, что данные существуют и доступны
         if (data != null && data != undefined) {
@@ -104,7 +104,7 @@ window.onload = () => {
             }
         }
 
-        localStorage.setItem('data', JSON.stringify(newData));
+        localStorage.setItem('tracker_data', JSON.stringify(newData));
         inputsWrap.innerHTML = '';
         render();
     }
