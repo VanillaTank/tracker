@@ -9,7 +9,7 @@ window.onload = () => {
     function render() {
         //сделать запрос в локальное хранилище
         let data = localStorage.getItem('data');
-
+        alert(data)
         //проверить, что данные существуют и доступны
         if (data != null && data != undefined) {
 
@@ -78,10 +78,9 @@ window.onload = () => {
 
     //сохранение изменений
     const saveData = () => {
-        alert(1);
         let newData = [];
         if (listContainer.children[0].innerText !== "Нет данных в хранилище") {
-            console.log(2);
+            alert(2);
             for (i = 0; i < listContainer.children.length; i++) {
                 let currentParseLi = listContainer.children[i];
                 let title = currentParseLi.children[0].innerText;
