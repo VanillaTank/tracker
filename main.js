@@ -78,8 +78,10 @@ window.onload = () => {
 
     //сохранение изменений
     const saveData = () => {
+        console.log(1);
         let newData = [];
         if (listContainer.children[0].innerText !== "Нет данных в хранилище") {
+            console.log(2);
             for (i = 0; i < listContainer.children.length; i++) {
                 let currentParseLi = listContainer.children[i];
                 let title = currentParseLi.children[0].innerText;
@@ -88,16 +90,15 @@ window.onload = () => {
                 if (title !== "" && value !== "") { newData.push({ title: title, value: value }) }
             }
         }
-
+        
         if ($('.tracker__list-add-item') !== null) {
+            console.log(3);
             for(i = 0; i < inputsWrap.children.length; i++) {
                 let currentgroupInputs = inputsWrap.children[i]
                 let newTitle = currentgroupInputs.children[0].value;
                 let newVlue = currentgroupInputs.children[1].value;
 
-                if (newTitle !== '' || newVlue !== "") {
-                    newData.push({ title: newTitle, value: newVlue })
-                }
+                if (newTitle !== '' || newVlue !== "") { newData.push({ title: newTitle, value: newVlue }) }
             }
         }
 
