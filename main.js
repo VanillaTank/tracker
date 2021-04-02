@@ -78,7 +78,7 @@ window.onload = () => {
 
     //сохранение изменений
     const saveData = () => {
-        console.log(1);
+        alert(1);
         let newData = [];
         if (listContainer.children[0].innerText !== "Нет данных в хранилище") {
             console.log(2);
@@ -92,7 +92,7 @@ window.onload = () => {
         }
         
         if ($('.tracker__list-add-item') !== null) {
-            console.log(3);
+            alert(3);
             for(i = 0; i < inputsWrap.children.length; i++) {
                 let currentgroupInputs = inputsWrap.children[i]
                 let newTitle = currentgroupInputs.children[0].value;
