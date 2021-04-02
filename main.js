@@ -103,7 +103,7 @@ window.onload = () => {
                 if (newTitle !== '' || newVlue !== "") { newData.push({ title: newTitle, value: newVlue }) }
             }
         }
-
+        alert(newData)
         localStorage.setItem('MyTrackerData', JSON.stringify(newData));
         inputsWrap.innerHTML = '';
         render();
