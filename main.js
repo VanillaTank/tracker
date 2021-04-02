@@ -9,7 +9,7 @@ window.onload = () => {
     function render() {
         //сделать запрос в локальное хранилище
         let data = localStorage.getItem('MyTrackerData');
-        alert(data)
+        alert(JSON.stringify(data))
         //проверить, что данные существуют и доступны
         if (data != null && data != undefined) {
 
