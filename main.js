@@ -82,6 +82,7 @@ window.onload = () => {
     //сохранение изменений
     const saveData = () => {
         localStorage.remove('MyTrackerData')
+        alert('Данные удалены')
         let newData = [];
         if (listContainer.children[0].innerText !== "Нет данных в хранилище") {
             alert(2);
