@@ -9,7 +9,6 @@ window.onload = () => {
     function render() {
         //сделать запрос в локальное хранилище
         let data = localStorage.getItem('MyTrackerData');
-        alert(JSON.stringify(data))
         //проверить, что данные существуют и доступны
         if (data != null && data != undefined) {
 
@@ -82,10 +81,9 @@ window.onload = () => {
     //сохранение изменений
     const saveData = () => {
         localStorage.removeItem('MyTrackerData')
-        alert('Данные удалены')
         let newData = [];
         if (listContainer.children[0].innerText !== "Нет данных в хранилище") {
-            alert(2);
+
             for (i = 0; i < listContainer.children.length; i++) {
                 let currentParseLi = listContainer.children[i];
                 let title = currentParseLi.children[0].innerText;
@@ -96,7 +94,6 @@ window.onload = () => {
         }
         
         if ($('.tracker__list-add-item') !== null) {
-            alert(3);
             for(i = 0; i < inputsWrap.children.length; i++) {
                 let currentgroupInputs = inputsWrap.children[i]
                 let newTitle = currentgroupInputs.children[0].value;
@@ -105,7 +102,6 @@ window.onload = () => {
                 if (newTitle !== '' || newVlue !== "") { newData.push({ title: newTitle, value: newVlue }) }
             }
         }
-        alert("newData ", newData[0].title)
         localStorage.setItem('MyTrackerData', JSON.stringify(newData));
         inputsWrap.innerHTML = '';
         render();
